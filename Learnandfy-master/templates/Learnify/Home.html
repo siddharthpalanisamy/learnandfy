@@ -1,0 +1,22 @@
+{% extends "Learnify/navbar.html" %}
+
+{% load static %}
+
+{% block head %}
+      <title>Home - Learnify</title>
+      <link rel="icon" type="image/png" href={% static "images/icon.ico" %}>
+      <link rel="stylesheet" type="text/css" href={% static "Home1.css" %}>
+{% endblock head %}
+
+
+{% block body %}
+      <div class="container">
+         <div id="content" class="snippet-hidden" style="position: absolute; left: 5%;">
+            <div class="image-hackathon">
+               <img src={% static "images/Home-bg.png" %} alt="" style="object-fit: cover; object-position: center;">
+               
+               <a href={% url "signup" %}><button class="btn btn-dark bg-black px-4 py-2 btn-mod" style="font-family: 'Poppins'; position: absolute; left: 80%; top: 6%;font-size: 1.2rem;">Register</button></a>
+            </div>
+         </div>
+      </div>
+{% endblock body %}

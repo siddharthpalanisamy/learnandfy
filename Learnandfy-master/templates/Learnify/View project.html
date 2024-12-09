@@ -1,0 +1,197 @@
+{% extends "Learnify/navbar.html" %}
+
+{% load static %}
+
+{% block head %}
+   <title>ProjectView- Learnify</title>
+   <style>.tree {
+    position: relative;
+    background: white;
+    margin-top: 20px;
+    padding: 30px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: .85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    
+    span {
+      font-size: 13px;
+      font-style: italic;
+      letter-spacing: .4px;
+      color: #a8a8a8;
+    }
+    
+    .fa-folder-open, .fa-folder {
+      color: #007bff;
+    }
+    
+    .fa-html5 {
+      color: #f21f10;
+    }
+    
+    ul {
+      padding-left: 5px;
+      list-style: none;}
+
+      
+      .file {
+        position: relative;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 1.5rem;
+        padding-left: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        
+        &:before {
+          position: absolute;
+          top: 15px;
+          left: 0;
+          width: 10px;
+          height: 1px;
+          margin: auto;
+          content: '';
+          background-color: #666;
+        }
+        
+        &:after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 1px;
+          height: 100%;
+          content: '';
+          background-color: #666;
+        }
+        
+        &:last-child:after {
+          height: 15px;
+        }
+      }
+      
+      a {
+        cursor: pointer;
+        
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .Folder{
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-top: 30px;
+    }
+	 
+   </style>
+{% endblock head %}
+
+{% block body %}
+   <!-- Topbar -->
+   <!-- Content -->
+   <div class="container">
+      <!-- Navbar -->
+      <div class="snippet-hidden" id="content" style="position: absolute; left: 18%;">
+         <div class="tree">
+            <h1 style="font-size: xx-large!important; font-family: 'Times New Roman', Times, serif; font-weight: 600;">{{ project.projectname }} :</h1>
+            <h2 class="mb-5" style="font-size: large; width: fit-content; ">{{ project.description }}</h2>
+			{% for name in foldername %}
+            <ul>
+				<li class="Folder"> <img src={% static "images/folder.png" %} width="30" alt=""> {{ name }}
+			<ul>
+				{% for file in folder %}
+            <li class="file">
+                <img src="{% static 'images/google-docs.png' %}" width="18" alt="">
+                <a href="{% url 'viewfile' project.sno file.sno %}">{{ file.file }}</a> 
+            </li>
+        {% endfor %}
+            </ul>
+			{% endfor %}	
+          </div>
+
+      </div>
+   </div>
+
+
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+{% endblock body %}

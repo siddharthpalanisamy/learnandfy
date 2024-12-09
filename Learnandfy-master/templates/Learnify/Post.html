@@ -1,0 +1,349 @@
+{% extends "Learnify/navbar.html" %}
+
+{% load static %}
+
+{% block head %}
+   <title>Post - Learnify</title>
+   <link rel="icon" type="image/png" href={% static "images/icon.ico" %}>
+   <link rel="stylesheet" type="text/css" href={% static "css/Post1.css" %}>
+{% endblock head %}
+
+{% block body %}
+   <div class="container">
+      <div id="content" class="snippet-hidden">
+         <main class="container">
+            <meta>
+            <meta>
+            <meta itemprop="dateModified" content="2024-02-11T10:06:03">
+            <!--this header has title info like username created time -->
+            <header class="s-page-title pb32 d-block">
+               <div class="d-flex ai-end jc-space-between w100">
+                  <div class="s-page-title--text">
+                     <nav class="s-breadcrumbs mb16 sm:mb2">
+                        <div class="s-breadcrumbs--item">
+                           <a class="s-breadcrumbs--link" href="">
+                           <img src={% static "images/icon.ico" %} alt="" width="22" height="22" style="opacity: 0.5;">
+                           </a>
+                           <svg aria-hidden="true" class="s-breadcrumbs--divider svg-icon iconArrowRightAltSm" width="13" height="14" viewBox="0 0 13 14">
+                              <path d="m4.38 4.62 1.24-1.24L9.24 7l-3.62 3.62-1.24-1.24L6.76 7 4.38 4.62Z"></path>
+                           </svg>
+                        </div>
+                        <div class="s-breadcrumbs--item">
+                           <a class="s-breadcrumbs--link" href="">Discussions</a>
+                        </div>
+                     </nav>
+                     <h1 class="s-page-title--header mb8">
+                        {{ post.title }}
+                     </h1>
+                     <div class="d-flex ai-center fw-wrap mt8 gs16">
+                        <div class="flex--item ws-nowrap" title="2024-02-11 05:35:53Z">
+                           <span class="fc-black-400 mr2">Created</span>
+                           <time itemprop="dateCreated" datetime="2024-02-11T05:35:53">{{ post.time }}</time>
+                        </div>
+                        <div class="js-reply-count-header flex--item ws-nowrap" title="4 replies">
+                           {{ count }} replies
+                           <meta itemprop="commentCount" content="4">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="s-page-title--actions ai-start">
+                     <a href={% url "questions" %}><button class="btn btn-dark" data-href="/beta/discussions/create" data-prompt-location="2" data-gps-track="discussions_start.click({ location: 2 })" style="position:absolute; left:70%; top:4%;">
+                     Start discussion
+                     </button></a>
+                  </div>
+               </div>
+            </header>
+            <div data-controller="s-modal" class="mt32 ">
+               <div class="container">
+                  <div class="js-discussion post-layout float-none" data-discussionid="77975725" data-score="Model.Discussion.Post.Score">
+                     <div class="postcell post-layout--left mt2 mln2">
+                        <div class="w64 d-flex fd-column gs12 gsy ai-center">
+                           <button class="flex--item d-flex s-btn ai-center ac-center ba bar-pill mt4 bc-black-225 fc-black-500 js-upvote-btn" id="Like-btn">
+                           <img src={% static "images/Like.svg" %} width="18" height="18" alt="" id="Like">
+                           </button>
+                           <div id="--stacks-s-tooltip-bb7clerj" class="s-popover s-popover__tooltip" role="tooltip">
+                              Mark this post as useful and clear
+                              <div class="s-popover--arrow"></div>
+                           </div>
+                           <div class="flex--item d-flex fd-column ai-center m0 px4 py2">
+                              <div class="js-discussion-score fs-subheading fc-black-500" style="opacity:0;">
+                                 0
+                              </div>
+                           </div>
+                           <button class="flex--item d-flex s-btn ai-center ac-center ba bar-pill mt4 bc-black-225 fc-black-500 js-downvote-btn" id="Dislike-btn">
+                           <img src={% static 'images/Dislike.svg' %} width="18" height="18" alt="" id="Dislike">
+                           </button>
+                           <div id="--stacks-s-tooltip-j7bltcld" class="s-popover s-popover__tooltip" role="tooltip">
+                              Mark this post as not useful or unclear
+                              <div class="s-popover--arrow"></div>
+                           </div>
+                           <div class="flex--item d-flex fd-column gs16">
+                              <a style="opacity: 0; pointer-events: none;" class="js-post-issue flex--item s-btn s-btn__unset c-pointer mx-auto fc-black-500" href="/posts/77975725/timeline" data-shortcut="T" data-ks-title="timeline" data-controller="s-tooltip" data-s-tooltip-placement="right" aria-label="Timeline" aria-describedby="--stacks-s-tooltip-0u37r6mn">
+                                 <svg aria-hidden="true" class="mln2 mr0 svg-icon iconHistory" width="19" height="18" viewBox="0 0 19 18">
+                                    <path d="M3 9a8 8 0 1 1 3.73 6.77L8.2 14.3A6 6 0 1 0 5 9l3.01-.01-4 4-4-4h3L3 9Zm7-4h1.01L11 9.36l3.22 2.1-.6.93L10 10V5Z"></path>
+                                 </svg>
+                              </a>
+                              <div id="--stacks-s-tooltip-0u37r6mn" class="s-popover s-popover__tooltip" role="tooltip">
+                                 Show activity on this post.
+                                 <div class="s-popover--arrow"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="postcell post-layout--right">
+                        <div id="js-reply-77975725-content" class="s-prose" itemprop="articleBody">
+                           <p>Context: {{ post.description }}</p>
+                        </div>
+                        <div class="my24 d-flex gs24 gsx ai-center sm:fd-column sm:ai-start">
+                        </div>
+                        <div class="bt bc-black-200 mt24 mb48 pt24 d-flex ai-start jc-end fw-wrap gs8 gsx">
+                           <div class="flex--item w96 fl1 mr16"></div>
+                           <div class="post-signature flex--item">
+                              <div class="s-user-card "></div>
+                           </div>
+                           <div class="post-signature flex--item">
+                              <div class="s-user-card  s-user-card__highlighted">
+                                 <div class="s-user-card--time">
+                                    <time>created <span title="2024-02-11 05:35:53Z" class="relativetime">22 hours ago</span></time>
+                                 </div>
+                                 <a href="/users/20143744/atmo" class="s-avatar s-avatar__32 s-user-card--avatar" tabindex="-1" aria-hidden="true">
+                                 <img src="https://www.gravatar.com/avatar/633cbcb984c15d92bf1decb4354fb62b?s=64&amp;d=identicon&amp;r=PG" class="s-avatar--image" alt="">
+                                 </a>
+                                 <div class="s-user-card--info">
+                                    <a href="/users/20143744/atmo" class="s-user-card--link lh-lg" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                    {{ post.author }}<span class="ws-nowrap"></span>
+                                    <span class="d-none" itemprop="name">Atmo</span>
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div id="js-reply-container" class="mb64">
+                           <section>
+                              <form method="post">
+                                 {% csrf_token %}
+                              <div class="container my-5 py-5">
+                                <div class="row d-flex justify-content-center">
+                                  <div class="col-md-12 col-lg-10 col-xl-8">
+                                    <div class="card">
+                                      
+                                      <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                        <div class="d-flex flex-start w-100">
+                                          
+                                          <div class="form-outline w-100">
+                                            <textarea class="form-control" id="textAreaExample" name="body" rows="8" style="background: #fff; height:95%;"></textarea>
+                                            <label class="form-label" for="textAreaExample">Message</label>
+                                          </div>
+                                        </div>
+                                        <div class="float-end mt-4 pt-1">
+                                          <button type="submit" class="btn btn-dark btn-m">Post comment</button>
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                           </form>
+                           </section>
+                           <div class="d-flex ai-center mb48">
+                              <h1 class="js-reply-count fs-subheading mb0">{{ count }} replies</h1>
+                              <div class="fl-grow1"></div>
+                              <div class="ml4 d-flex">
+                              </div>
+                           </div>
+                           {% for comment in comments %}
+                           <div id="reply-77977419" data-replyid="77977419" class="d-flex js-reply mb48">
+                              <a href="#" id="reply-77977419" class="d-none">77977419</a>
+                              <div id="js-reply-77977419" class="fl-grow1 break-word w100" itemscope="" itemtype="https://schema.org/Comment">
+                                 <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/4.0/">
+                                 <div itemprop="parentItem" itemscope="" itemtype="https://schema.org/DiscussionForumPosting">
+                                    <meta itemprop="headline" content="Binomial coefficient without division">
+                                    <meta itemprop="dateCreated" content="2/11/2024 5:35:53 AM">
+                                    <meta itemprop="url" content="/beta/discussions/77975725/binomial-coefficient-without-division">
+                                    <div itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                                       <meta itemprop="name" content="Atmo">
+                                    </div>
+                                 </div>
+                                 <div id="js-reply-77977419-body" class="d-flex fd-column g6  ">
+                                    <div class="d-inline-flex ai-center">
+                                       <div class="s-user-card s-user-card__small">
+                                          <a href="/users/893857/maarten-derickx" class="s-avatar s-avatar__24 s-user-card--avatar" tabindex="-1" aria-hidden="true">
+                                          <img src="https://i.stack.imgur.com/UdyIG.jpg?s=64&amp;g=1" class="s-avatar--image" alt="">
+                                          </a>
+                                          <div class="s-user-card--info">
+                                             <a href={% url "othersprofile" comment.commenter %} class="s-user-card--link lh-lg" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                             {{ comment.commenter }} <span class="ws-nowrap"></span>
+                                             <span class="d-none" itemprop="name">{{ comment.commenter }}</span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <span id="js-reply-77977419-content" class=" va-middle mbn8 fs-body2" data-markdown="" itemprop="text">
+                                       <p>{{ comment.comment }}</p>
+                                    </span>
+                                    <div id="js-reply-77977419-actions" class="d-flex ai-center gs16 fs-caption fc-black-400 fw-wrap">
+                                       <div class="flex--item">
+                                          <time class="fs-body1 fc-black-400" itemprop="dateCreated" datetime="2024-02-11T16:03:35">{{ comment.time }}</time>
+                                       </div>
+                                       <div class="d-flex flex--item">
+                                          <a href="/beta/discussions/77975725/77977419" data-controller="se-share-sheet s-popover" data-viewhref="/beta/discussions/77975725/77977419" data-se-share-sheet-title="Share a link to this reply" data-se-share-sheet-post-type="discussion" data-se-share-sheet-social="facebook twitter devto" data-se-share-sheet-location="6" data-se-share-sheet-license-url="https%3a%2f%2fcreativecommons.org%2flicenses%2fby-sa%2f4.0%2f" data-se-share-sheet-license-name="CC BY-SA 4.0" data-s-popover-placement="bottom-start" aria-controls="se-share-sheet-1" data-action=" s-popover#toggle se-share-sheet#preventNavigation s-popover:show->se-share-sheet#willShow s-popover:shown->se-share-sheet#didShow" aria-expanded="false">
+                                          </a>
+                                          <div class="s-popover z-dropdown s-anchors s-anchors__default" style="width: unset; max-width: 28em;" id="se-share-sheet-1">
+                                             <div class="s-popover--arrow"></div>
+                                             <div><label for="share-sheet-input-se-share-sheet-1"><span class="js-title fw-bold">Share a link to this reply</span> <span class="js-subtitle"></span></label></div>
+                                             <div class="my8"><input type="text" id="share-sheet-input-se-share-sheet-1" class="js-input s-input wmn3 sm:wmn-initial bc-black-300 bg-white fc-black-600" readonly=""></div>
+                                             <div class="d-flex jc-space-between ai-center mbn4">
+                                                <button class="js-copy-link-btn s-btn s-btn__link js-gps-track" data-gps-track="">Copy link</button><a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" class="js-license s-block-link w-auto" target="_blank" title="The current license for this post: CC BY-SA 4.0">CC BY-SA 4.0</a>
+                                                <div class="js-social-container d-none"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <button class="s-btn s-btn__unset flex--item c-pointer fc-black-400 h:fc-black-500" role="button" aria-controls="reply-overflow-menu-77977419" aria-expanded="false" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="bottom">
+                                       </button>
+                                       <div class="s-popover w-auto wmn-initial px0 py4" id="reply-overflow-menu-77977419" role="menu">
+                                          <div class="s-popover--arrow"></div>
+                                          <ul class="s-menu d-flex fd-column" role="menu">
+                                             <li role="menuitem">
+                                                <div data-controller="se-follow-post" data-se-follow-post-post-id-value="77977419" data-se-follow-post-post-type-id-value="15" data-se-follow-post-is-following-value="False" data-se-follow-post-follow-success-toast-override-value="You’re following this reply. Manage followed posts in your <a class='s-link s-link__underlined s-link__inherit' href='/users/current?tab=following'>profile</a>." data-se-follow-post-unfollow-success-toast-override-value="You’re no longer following this reply." data-se-follow-post-show-popover-value="false" data-se-follow-post-anonymous-url-value="/beta/discussions/anonymous/follow/77977419">
+                                                   <button data-se-follow-post-target="follow" class="s-btn s-btn__link px12 py6 fc-black-400 h:fc-black-500" aria-pressed="false">Follow</button>
+                                                </div>
+                                             </li>
+                                             <li role="menuitem">
+                                                <button class="js-reply-flag-modal-btn px12 py6 d-flex ai-center s-btn s-btn__link s-btn__icon fc-black-400 h:fc-black-500 s-link s-link__muted" data-id="77977419" data-is-reply="True">
+                                                Flag
+                                                </button>
+                                             </li>
+                                             <li role="menuitem">
+                                                <a class="s-btn s-btn__link s-btn__icon px12 py6 d-flex ai-center fc-black-400 h:fc-black-500" href="/posts/77977419/timeline">View activity</a>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           {% endfor %}
+                           <div id="ghost-input-box" class="d-none w100">
+                              <form action="" method="post">
+                                 <input type="hidden" name="fkey" value="7313c466ae8260e9fc8cf8045efc2a7b7d38d867c2a80d68a008546bf1fd99f1">
+                                 <div class="d-flex fd-column">
+                                    <div class="d-flex g4 fd-column js-stacks-validation">
+                                       <div></div>
+                                       <div class="d-flex ps-relative">
+                                          <div class="flex--item fl-grow1 w100">
+                                             <textarea id="js-stacks-editor-content" data-min-length="30" name="body" class="js-stacks-editor-backing-textarea d-none"></textarea>
+                                             <div id="js-stacks-editor-container">
+                                                <div class="js-fake-stacks-editor s-textarea s-input__readonly overflow-auto hmn2 w100 p0 d-flex fd-column pe-none">
+                                                   <div class="py6 bg-inherit btr-sm w100">
+                                                      <div class="d-flex overflow-x-auto ai-center px12 py4 pb0">
+                                                         <div class="d-flex g16 fl-grow1 ai-center">
+                                                            <div class="s-editor-menu-block d-flex g2">
+                                                               <div>
+                                                                  <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                                  <span class="icon-bg iconHeader"></span>
+                                                                  </button>
+                                                               </div>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconBold"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconItalic"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconCode"></span>
+                                                               </button>
+                                                            </div>
+                                                            <div class="s-editor-menu-block d-flex g2">
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconLink"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconQuote"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconCodeblock"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconImage"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconTable"></span>
+                                                               </button>
+                                                            </div>
+                                                            <div class="s-editor-menu-block d-flex g2">
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconOrderedList"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconUnorderedList"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconHorizontalRule"></span>
+                                                               </button>
+                                                            </div>
+                                                            <div class="s-editor-menu-block d-flex g2 sm:d-inline-flex d-none">
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconUndo"></span>
+                                                               </button>
+                                                               <button class="s-editor-btn s-btn is-disabled" disabled="" type="button">
+                                                               <span class="icon-bg iconRefresh"></span>
+                                                               </button>
+                                                            </div>
+                                                            <div class="s-editor-menu-block d-flex g2">
+                                                               <a class="s-editor-btn s-btn is-disabled" tabindex="-1" href="#" target="_blank">
+                                                               <span class="icon-bg iconHelp"></span>
+                                                               </a>
+                                                            </div>
+                                                         </div>
+                                                         <div class="flex--item d-flex ai-center ml24 fc-black-500">
+                                                            <div class="s-btn-group__radio">
+                                                               <input type="radio" disabled="">
+                                                               <label class="s-btn s-editor-btn px6">
+                                                               <span class="icon-bg iconRichText"></span>
+                                                               </label>
+                                                               <input type="radio" disabled="" checked="">
+                                                               <label class="s-btn s-editor-btn px6">
+                                                               <span class="icon-bg iconMarkdown"></span>
+                                                               </label>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class=" fl-grow1 outline-none p12 pt6 w100 s-prose ProseMirror">
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="s-input-message d-none js-stacks-validation-message"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="ba bg-black-100 bc-black-225 bbr-sm p12 d-flex mln0 mtn6">
+                                       <div class="flex--item fl-grow1 pl1">
+                                          <button id="js-submit-btn" type="submit" class="js-submit-btn s-btn s-btn__filled"></button>
+                                          <button id="js-cancel-btn" class="s-btn" type="button">Cancel</button>
+                                       </div>
+                                       <div class="flex--item pt12 fs-body1">
+                                          <span class="reply-form-error fc-red-400 fw-bold fs-caption"></span>
+                                       </div>
+                                    </div>
+                                    <div class="flex--item mt32">
+                                       <div class="js-general-error general-error clear-both d-none" aria-live="polite"></div>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+         
+         <div style="display:none" id="js-codeblock-lang"></div>
+      </div>
+   </div>
+   <script src={% static "js/jquery1.js" %}></script>
+   <script src={% static "js/jquery.js" %}></script>
+   <script src={% static "js/Like.js" %}></script>
+{% endblock body %}

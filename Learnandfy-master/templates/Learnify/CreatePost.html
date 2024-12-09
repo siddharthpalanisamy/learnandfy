@@ -1,0 +1,93 @@
+{% extends "Learnify/navbar.html" %}
+{% load static %}
+{% block head %}
+   <title>Create post - Learnify</title>
+   <link rel="stylesheet" type="text/css" href={% static "css/CreatePost1.css" %} >
+{% endblock head %}
+   
+{% block body %}
+      <div class="container">
+         <!-- Navbar -->
+         <div id="content" class="snippet-hidden" style="position: absolute; left: 14.73%;">
+            <main>
+               <header class="d-flex s-page-title mb24">
+                  <div class="flex--item">
+                     <nav class="s-breadcrumbs mb16 sm:mb2">
+                        <div class="s-breadcrumbs--item">
+                           <a class="s-breadcrumbs--link" href="">
+                           <span class="v-visible-sr"></span>
+                           <img src="/static/images/icon.ico" style="opacity: 0.4; pointer-events: none;" width="18" height="18" alt="">
+                           </a>
+                           <svg aria-hidden="true" class="s-breadcrumbs--divider svg-icon iconArrowRightAltSm" width="13" height="14" viewBox="0 0 13 14">
+                              <path d="m4.38 4.62 1.24-1.24L9.24 7l-3.62 3.62-1.24-1.24L6.76 7 4.38 4.62Z"></path>
+                           </svg>
+                        </div>
+                        <div class="s-breadcrumbs--item">
+                           <a class="s-breadcrumbs--link" href="">New discussions</a>
+                        </div>
+                     </nav>
+                     <h1 class="s-page-title--header">
+                        Create new discussion
+                     </h1>
+                  </div>
+               </header>
+               <div class="container">
+                  <form id="js-edit-discussion-form" method="post">
+                     {% csrf_token %}
+                     <div class="d-flex gs16 gsy fd-column">
+                        <div class="d-flex g4 fd-column js-stacks-validation">
+                           <div>
+                              <label class="s-label " for="title">Title</label>
+                              <div class="d-flex jc-space-between fs-caption fc-black-500">
+                                 <div class="flex--item text-right">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="d-flex ps-relative">
+                              <div class="d-flex fd-column fl-grow1">
+                                 <div class="ps-relative">
+                                    <input class="s-input js-post-title-field" type="text" name="title" id="title" placeholder="Enter a title" data-min-length="15" data-max-length="130" tabindex="0" fdprocessedid="wk8j8">
+                                 </div>
+                                 <div class="d-none s-input-message js-stacks-validation-message"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="d-flex g4 fd-column js-stacks-validation">
+                           <div>
+                              <label class="s-label " for="targetUrl">Associated content URL </label>
+                              <div class="d-flex fs-caption fc-black-500">
+                              </div>
+                           </div>
+                           <div class="d-flex ps-relative">
+                              <div class="d-flex fd-column fl-grow1">
+                                 <div class="ps-relative">
+                                    <input class="s-input js-target-url" type="text" value="" name="targetUrl" id="targetUrl" tabindex="0" fdprocessedid="dsmm9t">
+                                 </div>
+                                 <div id="js-target-container" class="mt12 d-none">
+                                 </div>
+                                 <div class="d-none s-input-message js-target-error js-stacks-validation-message"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="d-flex g4 fd-column js-stacks-validation">
+                           <div>
+                              <label class="s-label " for="body">Body</label>
+                           </div>
+                           <div class="form-group">
+                              <textarea class="form-control" name="body" id="Body-text-area" rows="7"></textarea>
+                            </div>
+                        </div>
+                        <div class="flex--item mt24">
+                           <button class="btn btn-dark" type="submit" form="js-edit-discussion-form" fdprocessedid="zep5c9">Post discussion</button>
+                        </div>
+                        <div class="flex--item mt32">
+                           <div class="js-general-error general-error clear-both d-none" aria-live="polite"></div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </main>
+            
+         </div>
+      </div>
+{% endblock body %}

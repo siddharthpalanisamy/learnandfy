@@ -1,0 +1,100 @@
+{% load static %}
+<html lang="en"><head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Professional Info-Learnify</title>
+
+    <!-- Icons font CSS-->
+    <link rel="icon" type="image/png" href={% static "images/icon.ico" %}>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&amp;display=swap" rel="stylesheet">
+    <!-- Font special for pages-->
+   
+
+
+    <!-- Main CSS-->
+    <link href={% static "css/main.css" %} rel="stylesheet" media="all">
+</head>
+
+<body style="font-family: 'Poppins';">
+    <div class="page-wrapper  p-t-45 p-b-50" style="margin-left: 10%;">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Professional Information</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row m-b-55">
+                            <div class="name">Organization name</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="organization">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="form-row m-b-55">
+                            <div class="name">Designation</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="designation">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="form-row m-b-55">
+                            <div class="name">Work &nbsp;  Experience</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="year" min="0">
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit" style="background-color: black; color: white;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>

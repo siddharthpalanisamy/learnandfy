@@ -1,0 +1,38 @@
+{% extends "Learnify/navbar.html" %}
+
+{% load static %}
+
+{% block head %}
+      <title>Project file- Learnify</title>
+      <link rel="icon" type="image/png" href={% static "images/icon.ico" %}>
+      <link rel="stylesheet" type="text/css" href={% static "css/CreatePost1.css" %}>
+
+{% endblock head %}
+
+{% block body %}
+      <!-- Topbar -->
+      <!-- Content -->
+      <div class="container">
+         <!-- Navbar -->
+         <div class="snippet-hidden" id="content" style="position: absolute; left: 17%; height: auto; max-width: 100dvw;">
+            <div class="highlight" style="background-color:#1E1E1E;color:#C8C8C8;">
+            <form action="" method="post">
+                {% csrf_token %}
+               <div class="header " style="font-size: 1.5rem; width: 100%;margin: 0%; padding: 0%; outline: 1px solid #C8C8C8;padding: 20px; display: flex; justify-content: space-between;">
+                  &nbsp; &nbsp;{{ folder.file }}
+                   
+                  <div class="">
+                     <button role="none" data-mutual="{{mutual}}" class="btn btn-secondary px-4 py-1" id="Edit-btn" style="padding-top: 2px; padding-bottom: 2px; ">Edit</button>
+                     <button id="Save-btn" name="save" class="btn btn-secondary px-4 py-1" style="padding-top: 2px; padding-bottom: 2px; margin-left: 10px; opacity: 0.5; pointer-events: none;" role="submit">Save</button>
+                  </div>
+               </div>
+               <textarea tabindex="0" name="file" id="Content-edit" class="chroma" style="background-color:#1E1E1E;color:#00a67d;font-size: medium; width: 1045px    ;height: 100dvh; border: none; pointer-events: none;">
+                {{ filedata }}
+             </textarea>
+             </form>
+            </div>
+         </div>
+      </div>
+      <script src={% static "js/FileEditAcess.js" %}></script>
+
+{% endblock body %}
